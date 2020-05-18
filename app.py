@@ -27,7 +27,8 @@ def index():
       return redirect('/')
 
     except:
-      return 'Oops! An error occured'
+      error = 'Oops! An error occured'
+      return render_template('error.html', error=error)
 
   else:
     tasks = Todo.query.order_by(Todo.date_created).all()
@@ -44,7 +45,9 @@ def delete(id):
     return redirect('/')
 
   except:
-    return 'Opps! Can\'t delete the task'
+    error = 'Opps! Can\'t delete the task'
+    return render_template('error.html', error=error)
+
 
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
@@ -59,7 +62,9 @@ def update(id):
       return redirect('/')
     
     except:
-      return 'Opps! Error Updating task'
+      error = 'Opps! Error Updating task'
+      return render_template('error.html', error=error)
+
 
   else:
     return render_template('update.html', task=task)
