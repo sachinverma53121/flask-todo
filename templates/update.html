@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block head %} Task-Manager: Update {% endblock %}
+{% block body %}
+
+<div class="container mt-2">
+  <h1 class="display-3 text-center">Update Task</h1>
+
+  <form action="/update/{{ task.id }}" method="POST">
+    <div class="row">
+      <div class="col-8 col-md-4 offset-md-3 mt-2">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="content"
+            name="content"
+            value="{{ task.content }}"
+          />
+        </div>
+      </div>
+      <div class="col-4 col-md-2 mt-2">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
